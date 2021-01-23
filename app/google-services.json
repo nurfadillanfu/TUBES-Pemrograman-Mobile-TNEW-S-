@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "386139536063",
+    "firebase_url": "https://mynewsapp-bbc88.firebaseio.com",
+    "project_id": "mynewsapp-bbc88",
+    "storage_bucket": "mynewsapp-bbc88.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:386139536063:android:e7e7b6d50286e81bc4a40a",
+        "android_client_info": {
+          "package_name": "com.dicoding.mynewsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "386139536063-tp58nfm1spb8kkpjf4svlrvr52sifstn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dicoding.mynewsapp",
+            "certificate_hash": "5b94559ebc847d76d682327d009e6688bd65de73"
+          }
+        },
+        {
+          "client_id": "386139536063-hkhv4crtflgrhc3tq3017p6pq0g8ftim.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvW6PbX79CaUmbJ83vlWhCybwRN9OEDLo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "386139536063-hkhv4crtflgrhc3tq3017p6pq0g8ftim.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
