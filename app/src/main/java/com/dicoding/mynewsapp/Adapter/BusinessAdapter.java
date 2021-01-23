@@ -46,7 +46,28 @@ public class BusinessAdapter extends RecyclerView.Adapter<BusinessAdapter.bidang
         return new bidangViewHolder(view);
     }
 
+    @Override
+    public void onBindViewHolder(final bidangViewHolder holder, final int position) {
+        holder.tv_judul.setText(list.get(position).getTitle());
+//        holder.tv_deskripsi.setText(list.get(position).getDescription());
+        holder.tv_author.setText(list.get(position).getAuthor());
+        Glide.with(context)
+                .load(list.get(position).getUrlToImage())
+                .into(holder.img_gambar);
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context,DetailBusiness.class);
+                intent.putExtra(DetailBusiness.EXTRA_TITLE, list.get(position).getTitle());
+                intent.putExtra(DetailBusiness.EXTRA_DATE,list.get(position).getPublishedAt());
+                intent.putExtra(DetailBusiness.EXTRA_IMAGE,list.get(position).getUrlToImage());
+                intent.putExtra(DetailBusiness.EXTRA_AUTHOR,list.get(position).getAuthor());
+                intent.putExtra(DetailBusiness.EXTRA_CONTENT,list.get(position).getContent());
+                intent.putExtra(DetailBusiness.EXTRA_URL,list.get(position).getUrl());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
