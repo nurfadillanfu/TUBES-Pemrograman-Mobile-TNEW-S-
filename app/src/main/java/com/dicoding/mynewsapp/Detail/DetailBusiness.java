@@ -115,7 +115,18 @@ public class DetailBusiness extends AppCompatActivity {
                         }
                     }
                 }
-
+                else {
+                    checkBox.setChecked(false);
+                    BookmarkHelper bookmarkHelper = BookmarkHelper.getInstance(DetailBusiness.this);
+                    articles = bookmarkHelper.getAllNews();
+                    int id = 0;
+                    for (int i = 0;i<articles.size();i++){
+                        if (articles.get(i).getTitle().equalsIgnoreCase(judul)&& articles.get(i).getContent().equalsIgnoreCase(konten)){
+                            id = articles.get(i).getId();
+                        }
+                        bookmarkHelper.deleteBookmark(id);
+                    }
+                }
             }
         });
 

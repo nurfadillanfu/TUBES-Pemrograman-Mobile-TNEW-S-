@@ -34,7 +34,16 @@ public class FavoriteFragment extends Fragment {
         return view;
     }
 
-   
+    private void setRecycleView() {
+        BusinessAdapter businessAdapter = new BusinessAdapter(getContext());
+        businessAdapter.notifyDataSetChanged();
+        BookmarkHelper bookmarkHelper = BookmarkHelper.getInstance(getContext());
+        businessAdapter.setListBusiness(bookmarkHelper.getAllNews());
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(businessAdapter);
+        recyclerView.setNestedScrollingEnabled(false);
+        showLoading(false);
+    }
 
     private void showLoading(Boolean state) {
         if (state){

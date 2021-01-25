@@ -101,5 +101,14 @@ public class Technology extends Fragment{
 
 
     }
+    private void setListFilm(ArrayList<Article> list){
 
+//        for (int a = 0; a < list.size(); a++){
+//            Log.e("saat di set", list.get(a).getPosterPath() + "ada");
+//        }
+        rvMovies.setLayoutManager(new LinearLayoutManager(getActivity()));
+        BusinessAdapter go = new BusinessAdapter(list);
+        rvMovies.setAdapter(go);
+        rvMovies.setNestedScrollingEnabled(false);
+    }
 }

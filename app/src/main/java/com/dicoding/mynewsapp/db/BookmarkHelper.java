@@ -20,7 +20,21 @@ import static com.dicoding.mynewsapp.db.DatabeseContract.BookmarkColumns.TITLE;
 import static com.dicoding.mynewsapp.db.DatabeseContract.BookmarkColumns.URL;
 import static com.dicoding.mynewsapp.db.DatabeseContract.TABLE_BOOKMARK_NEW;
 
+public class BookmarkHelper {
+    public static final String DATABASE_TABLE = TABLE_BOOKMARK_NEW ;
+    private static  DatabaseHelper databaseHelper;
+    private static BookmarkHelper INSTANCE;
+    private static SQLiteDatabase database;
 
+    public BookmarkHelper(Context context) {
+        databaseHelper = new DatabaseHelper(context);
+    }
+    public static BookmarkHelper getInstance(Context context){
+        if (INSTANCE == null){
+            synchronized (SQLiteOpenHelper.class){
+                if (INSTANCE == null){
+                    INSTANCE = new BookmarkHelper(context);
+                }
             }
         }
         return INSTANCE;

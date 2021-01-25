@@ -73,7 +73,25 @@ public class Sport extends Fragment{
 
     //    @Override
 //    public void onCreate(@NonNull Bundle savedInstanceState) {
+    private void addItem() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(RetSport.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        RetSport retrofitnya = retrofit.create(RetSport.class);
+        Call<BusinessList> hubungi = retrofitnya.getBusiness();
+        hubungi.enqueue(new Callback<BusinessList>() {
+            @Override
+            public void onResponse(Call<BusinessList> call, Response<BusinessList> response) {
+                BusinessList tv = response.body();
+                Log.e("Get data", "duluan");
 
+                for (int a = 0; a < tv.getArticles().size(); a++){
+                    listMv.add(tv.getArticles().get(a));
+                }
+                loading.setVisibility(View.GONE);
+                setListFilm(listMv);
+            }
 
             @Override
             public void onFailure(Call<BusinessList> call, Throwable t) {

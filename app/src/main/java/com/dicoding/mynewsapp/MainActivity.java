@@ -41,7 +41,27 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        BottomNavigationView navView = findViewById(R.id.nav_view);
+        viewPager = findViewById(R.id.viewpager);
+        navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        fullScreen();
+        if (savedInstanceState == null){
+            Fragment fragment = new NewsFragment();
+            setupFragment(fragment);
+        }
+        FirebaseMessaging.getInstance().subscribeToTopic("news");
+//        favoriteHelper = FavoriteHelper.getInstance(getApplicationContext());
+//        favoriteHelper.open();
+//        Log.i(TAG,"onCreate");
 
+        bookmarkHelper = BookmarkHelper.getInstance(getApplicationContext());
+        bookmarkHelper.open();
+
+    }
 
 
     private void fullScreen(){
